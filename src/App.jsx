@@ -1,36 +1,35 @@
-
-import { createBrowserRouter, RouterProvider } from 'react-router'
+import { createHashRouter, RouterProvider } from 'react-router'
 import './App.css'
 import Home from './components/Home'
 import Blog from './components/Blog'
 import NotFoundPage from './components/NotFoundPage'
 import AboutUs from './components/AboutUs'
 import BlogDetailsPage from './components/BlogDetailsPage'
-function App() {
 
-  const routing = createBrowserRouter([
+function App() {
+  const routing = createHashRouter([
     {
-      path: '',
+      path: '/',
       element: <Home />
     },
     {
-      path: 'home',
+      path: '/home',
       element: <Home />
     },
     {
-      path: 'home/:slug',
+      path: '/home/:slug',
       element: <BlogDetailsPage />
     },
     {
-      path: 'blog',
+      path: '/blog',
       element: <Blog />
     },
     {
-      path: 'blog/:slug',
+      path: '/blog/:slug',
       element: <BlogDetailsPage />
     },
     {
-      path: 'about',
+      path: '/about',
       element: <AboutUs />
     },
     {
@@ -38,6 +37,7 @@ function App() {
       element: <NotFoundPage />
     },
   ])
+
   return (
     <>
       <RouterProvider router={routing} />
